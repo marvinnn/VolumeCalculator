@@ -1,6 +1,8 @@
 package com.revmedia.volumecalculator;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -154,12 +156,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void selectItemFromDrawer(int position) {
-        Fragment fragment = new MainFragment();
+        if (position == 0){
+            Fragment fragment = new MainFragment();
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.mainContent, fragment)
-                .commit();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.mainContent, fragment)
+                    .commit();
+        }
+        else if(position == 1){
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=RevMedia&hl=in"));
+            startActivity(browserIntent);
+        }
+        else if(position == 2){
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+
 
         mDrawerList.setItemChecked(position, true);
         setTitle(mNavItems.get(position).mTitle);

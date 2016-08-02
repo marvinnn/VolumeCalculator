@@ -13,4 +13,16 @@
     <string name="cylinder_text">Cylinder</string>
     <string name="cone_text">Cone</string>
     <string name="sphere_text">Sphere</string>
+
+    <string name="edge_text">Edge</string>
+    <string name="base_length_text">Base Length</string>
+    <string name="base_width_text">Base Width</string>
+    <string name="height_text">Height</string>
+    <string name="triangle_base_text">Triangle Base</string>
+    <string name="triangle_height_text">Triangle Height</string>
+    <string name="radius_text">Radius</string>
+
+    <string name="submit_text">Submit</string>
+    <string name="result_text">Result</string>
+    <string name="error_text">Fill the required field</string>
 </resources>
