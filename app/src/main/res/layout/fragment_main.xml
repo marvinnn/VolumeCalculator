@@ -5,9 +5,79 @@
     tools:context="com.revmedia.volumecalculator.MainFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="30dp">
+
+            <Button
+                android:id="@+id/buttonCube"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cube_text"
+                style="Widget.AppCompat.Button"
+                />
+
+            <Button
+                android:id="@+id/buttonRectangularPrism"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rectangular_prism_text"
+                style="Widget.AppCompat.Button"
+                />
+            <Button
+                android:id="@+id/buttonTriangularPrism"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/triangular_prism_text"
+                style="Widget.AppCompat.Button"
+                />
+            <Button
+                android:id="@+id/buttonRectangularPyramid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rectangular_pyramid_text"
+                style="Widget.AppCompat.Button"
+                />
+            <Button
+                android:id="@+id/buttonTriangularPyramid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/triangular_pyramid_text"
+                style="Widget.AppCompat.Button"
+                />
+            <Button
+                android:id="@+id/buttonCylinder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cylinder_text"
+                style="Widget.AppCompat.Button"
+                />
+            <Button
+                android:id="@+id/buttonCone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cone_text"
+                style="Widget.AppCompat.Button"
+                />
+            <Button
+                android:id="@+id/buttonSphere"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sphere_text"
+                style="Widget.AppCompat.Button"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </FrameLayout>

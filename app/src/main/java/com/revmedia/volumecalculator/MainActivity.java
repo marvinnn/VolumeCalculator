@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,11 +38,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        mNavItems.add(new NavItem("Home", "Meetup destination", R.drawable.ic_menu_home));
-        mNavItems.add(new NavItem("Preferences", "Change your preferences", R.drawable.ic_menu_settings));
-        mNavItems.add(new NavItem("About", "Get to know about us", R.drawable.ic_menu_about));
-
+        mNavItems.add(new NavItem("Home", R.drawable.ic_menu_home));
+        mNavItems.add(new NavItem("More Apps", R.drawable.ic_menu_about));
+        mNavItems.add(new NavItem("Exit", R.drawable.ic_cancel_black_24dp));
         // DrawerLayout
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
 
@@ -95,12 +94,12 @@ public class MainActivity extends AppCompatActivity {
 
     class NavItem {
         String mTitle;
-        String mSubtitle;
+        //String mSubtitle;
         int mIcon;
 
-        public NavItem(String title, String subtitle, int icon) {
+        public NavItem(String title, int icon) {
             mTitle = title;
-            mSubtitle = subtitle;
+            //mSubtitle = subtitle;
             mIcon = icon;
         }
     }
@@ -143,11 +142,11 @@ public class MainActivity extends AppCompatActivity {
             }
 
             TextView titleView = (TextView) view.findViewById(R.id.title);
-            TextView subtitleView = (TextView) view.findViewById(R.id.subTitle);
+            //TextView subtitleView = (TextView) view.findViewById(R.id.subTitle);
             ImageView iconView = (ImageView) view.findViewById(R.id.icon);
 
             titleView.setText( mNavItems.get(position).mTitle );
-            subtitleView.setText( mNavItems.get(position).mSubtitle );
+            //subtitleView.setText( mNavItems.get(position).mSubtitle );
             iconView.setImageResource(mNavItems.get(position).mIcon);
 
             return view;
@@ -178,5 +177,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
+    }
+
+    public void setActionBarTitle(String title){
+        ActionBar ab = getSupportActionBar();
+        ab.setTitle(title);
     }
 }

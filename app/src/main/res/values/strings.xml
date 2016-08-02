@@ -5,4 +5,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cube_text">Cube</string>
+    <string name="rectangular_prism_text">Rectangular Prism</string>
+    <string name="triangular_prism_text">Triangular Prism</string>
+    <string name="rectangular_pyramid_text">Rectangular Pyramid</string>
+    <string name="triangular_pyramid_text">Triangular Pyramid</string>
+    <string name="cylinder_text">Cylinder</string>
+    <string name="cone_text">Cone</string>
+    <string name="sphere_text">Sphere</string>
 </resources>
