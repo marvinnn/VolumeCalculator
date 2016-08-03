@@ -13,6 +13,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +38,10 @@ public class TriangularPrismFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_triangular_prism, container, false);;
 
         ((MainActivity)getActivity()).setActionBarTitle(getString(R.string.triangular_prism_text));
+
+        AdView mAdView = (AdView) rootView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         inputLayoutTriangleBase = (TextInputLayout)rootView.findViewById(R.id.input_layout_triangle_base);
         inputLayoutTriangleHeight = (TextInputLayout)rootView.findViewById(R.id.input_layout_triangle_height);

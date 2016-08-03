@@ -25,4 +25,6 @@
     <string name="submit_text">Submit</string>
     <string name="result_text">Result</string>
     <string name="error_text">Fill the required field</string>
+
+    <string name="ad_unit">ca-app-pub-3940256099942544/6300978111</string>
 </resources>

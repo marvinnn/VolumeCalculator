@@ -13,6 +13,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,6 +39,10 @@ public class ConeFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_cone, container, false);;
 
         ((MainActivity)getActivity()).setActionBarTitle(getString(R.string.cone_text));
+
+        AdView mAdView = (AdView) rootView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         inputLayoutRadius = (TextInputLayout)rootView.findViewById(R.id.input_layout_radius);
         inputLayoutHeight = (TextInputLayout)rootView.findViewById(R.id.input_layout_height);

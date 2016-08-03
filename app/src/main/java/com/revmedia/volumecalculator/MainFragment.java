@@ -3,10 +3,14 @@ package com.revmedia.volumecalculator;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 
 /**
@@ -42,52 +46,96 @@ public class MainFragment extends Fragment {
         sphereButton = (Button)rootView.findViewById(R.id.buttonSphere);
         ((MainActivity) getActivity()).setActionBarTitle(getString(R.string.app_name));
 
+        AdView mAdView = (AdView) rootView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         cubeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Fragment fragment = new CubeFragment();
 
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.mainContent, fragment)
+                        .commit();
             }
         });
         rectangularPrismButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Fragment fragment = new RectangularPrismFragment();
 
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.mainContent, fragment)
+                        .commit();
             }
         });
         triangularPrismButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Fragment fragment = new TriangularPrismFragment();
 
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.mainContent, fragment)
+                        .commit();
             }
         });
         rectangularPyramidButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Fragment fragment = new RectangularPyramidFragment();
 
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.mainContent, fragment)
+                        .commit();
             }
         });
         triangularPyramidButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Fragment fragment = new TriangularPyramidFragment();
 
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.mainContent, fragment)
+                        .commit();
             }
         });
         cylinderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Fragment fragment = new CylinderFragment();
 
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.mainContent, fragment)
+                        .commit();
             }
         });
         coneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Fragment fragment = new ConeFragment();
 
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.mainContent, fragment)
+                        .commit();
             }
         });
         sphereButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Fragment fragment = new SphereFragment();
 
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.mainContent, fragment)
+                        .commit();
             }
         });
 
