@@ -9,8 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 
 /**
@@ -25,6 +27,7 @@ public class MainFragment extends Fragment {
     private Button cylinderButton;
     private Button coneButton;
     private Button sphereButton;
+    InterstitialAd mInterstitialAd;
 
     public MainFragment() {
         // Required empty public constructor
@@ -50,6 +53,17 @@ public class MainFragment extends Fragment {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        mInterstitialAd = new InterstitialAd(getContext());
+        mInterstitialAd.setAdUnitId(getString(R.string.interstitial));
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+            }
+        });
+
+        requestNewInterstitial();
+
         cubeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,6 +72,7 @@ public class MainFragment extends Fragment {
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.mainContent, fragment)
+                        .addToBackStack("tag")
                         .commit();
             }
         });
@@ -69,17 +84,22 @@ public class MainFragment extends Fragment {
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.mainContent, fragment)
+                        .addToBackStack("tag")
                         .commit();
             }
         });
         triangularPrismButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                }
                 Fragment fragment = new TriangularPrismFragment();
 
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.mainContent, fragment)
+                        .addToBackStack("tag")
                         .commit();
             }
         });
@@ -91,55 +111,79 @@ public class MainFragment extends Fragment {
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.mainContent, fragment)
+                        .addToBackStack("tag")
                         .commit();
             }
         });
         triangularPyramidButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                }
                 Fragment fragment = new TriangularPyramidFragment();
 
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.mainContent, fragment)
+                        .addToBackStack("tag")
                         .commit();
             }
         });
         cylinderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                }
                 Fragment fragment = new CylinderFragment();
 
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.mainContent, fragment)
+                        .addToBackStack("tag")
                         .commit();
             }
         });
         coneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                }
                 Fragment fragment = new ConeFragment();
 
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.mainContent, fragment)
+                        .addToBackStack("tag")
                         .commit();
             }
         });
         sphereButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                }
                 Fragment fragment = new SphereFragment();
 
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.mainContent, fragment)
+                        .addToBackStack("tag")
                         .commit();
             }
         });
 
         return rootView;
+    }
+
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .build();
+
+        mInterstitialAd.loadAd(adRequest);
     }
 
 }

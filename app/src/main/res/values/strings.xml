@@ -27,4 +27,5 @@
     <string name="error_text">Fill the required field</string>
 
     <string name="ad_unit">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitial">ca-app-pub-3940256099942544/1033173712</string>
 </resources>

@@ -92,6 +92,12 @@ public class MainActivity extends AppCompatActivity {
         };
 
         mDrawerLayout.addDrawerListener(mDrawerToggle);
+        Fragment fragment = new MainFragment();
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.mainContent, fragment)
+                .commit();
     }
 
     class NavItem {

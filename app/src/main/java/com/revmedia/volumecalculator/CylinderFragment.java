@@ -75,7 +75,7 @@ public class CylinderFragment extends Fragment {
         double tempJari = 0;
         double resultSquare = 0;
         if(radius%7==0){
-            tempJari /= 7;
+            tempJari = radius / 7;
             resultSquare = 22 * tempJari * radius * height;
         }
         else{

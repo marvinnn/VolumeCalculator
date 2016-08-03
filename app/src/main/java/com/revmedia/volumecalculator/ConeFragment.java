@@ -49,7 +49,7 @@ public class ConeFragment extends Fragment {
         inputRadius = (EditText)rootView.findViewById(R.id.input_radius);
         inputHeight = (EditText)rootView.findViewById(R.id.input_height);
         result = (EditText)rootView.findViewById(R.id.result);
-        btnSubmit = (Button)rootView.findViewById(R.id.calculateCylinder);
+        btnSubmit = (Button)rootView.findViewById(R.id.calculateCone);
 
         inputRadius.addTextChangedListener(new MyTextWatcher(inputRadius));
         inputHeight.addTextChangedListener(new MyTextWatcher(inputHeight));
@@ -75,7 +75,7 @@ public class ConeFragment extends Fragment {
         double tempJari = 0;
         double resultSquare = 0;
         if(radius%7==0){
-            tempJari /= 7;
+            tempJari = radius/7;
             resultSquare = 22 * tempJari * radius * height;
         }
         else{
